@@ -4,7 +4,45 @@ Suite Teardown    Suite-Teardown
 Library           Collections
 Library           OperatingSystem
 Library           String
-Resource          ../Libraries/BASICS-lib.txt
+
+*** Keywords ***
+Suite-Setup
+    Set Suite Variable    @{List-Names}    Unix    Python    Robot    RIDE
+
+Test-Setup-1
+    ${SW}    Create Dictionary    Names=${List-Names}
+    Set Test Variable    ${SW}
+
+Test-Setup-2
+    ${SW}    Create Dictionary    Author=Thirumal
+    Set Test Variable    ${SW}
+
+Test-Teardown-1
+    Log Many    ${SW}
+
+Test-Teardown-2
+    Log Many    ${SW}
+
+Vaiable-Scope
+    Log Many    ${List-Names}
+    ${val1}    Set Variable    10
+    ${testvariable}    Set Test Variable    ${val1}
+
+Set-Variable-Scope
+    ${testvariable}    Set Variable    5
+    Log    ${testvariable}
+    Set Test Variable    ${testvariable}    6
+    ${Var}    Set Variable    40
+
+Add-Integers
+    [Arguments]    ${arg1}    ${arg2}
+    ${result}    Evaluate    ${arg1}+${arg2}
+    [Return]    ${result}
+
+Suite-Teardown
+    Log    ${List-Names}[0]
+    Log to Console    ${List-Names}[1]
+    Log Many    ${List-Names}
 
 *** Variables ***
 ${num1}           28
@@ -47,7 +85,7 @@ TC002 Variable Scope
     Create File    D:/Nokia/Libraries/Test-lib.txt    A AN. or Ask. the and\nor the\nor the\nand
     ${FileC}    Get File    D:/Nokia/Libraries/Test-lib.txt
     ${FileC}    Get Lines Containing String    ${FileC}    the
-    ${FileC}    GetLines Matching Pattern    ${FileC}    A*
+    ${FileC}    Get Lines Matching Pattern    ${FileC}    A*
     ${FileC}    Convert To Lower Case    ${FileC}
     ${FileC}    Remove String    ${FileC}    or
     ${FileC}    Replace String    ${FileC}    and    or
