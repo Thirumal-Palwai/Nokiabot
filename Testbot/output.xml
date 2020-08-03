@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.1 (Python 3.7.6 on win32)" generated="20200804 01:49:19.092" rpa="false">
+<suite id="s1" name="Testbot" source="C:\Users\thiru\eclipse-workspace\Testbot">
+<suite id="s1-s1" name="Testsuites" source="C:\Users\thiru\eclipse-workspace\Testbot\Testsuites">
+<suite id="s1-s1-s1" name="BASICS" source="C:\Users\thiru\eclipse-workspace\Testbot\Testsuites\BASICS.robot">
+<kw name="Suite-Setup" library="BASICS-lib" type="setup">
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>@{List-Names}</arg>
+<arg>Unix</arg>
+<arg>Python</arg>
+<arg>Robot</arg>
+<arg>RIDE</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.304" level="INFO">@{List-Names} = [ Unix | Python | Robot | RIDE ]</msg>
+<status status="PASS" starttime="20200804 01:49:19.302" endtime="20200804 01:49:19.304"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.301" endtime="20200804 01:49:19.305"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="TC001 Intro to Keywords">
+<kw name="Test-Setup-1" library="BASICS-lib" type="setup">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Names=${List-Names}</arg>
+</arguments>
+<assign>
+<var>${SW}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.308" level="INFO">${SW} = {'Names': ['Unix', 'Python', 'Robot', 'RIDE']}</msg>
+<status status="PASS" starttime="20200804 01:49:19.307" endtime="20200804 01:49:19.308"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${SW}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.310" level="INFO">${SW} = {'Names': ['Unix', 'Python', 'Robot', 'RIDE']}</msg>
+<status status="PASS" starttime="20200804 01:49:19.309" endtime="20200804 01:49:19.310"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.306" endtime="20200804 01:49:19.310"></status>
+</kw>
+<kw name="Add-Integers" library="BASICS-lib">
+<arguments>
+<arg>${num1}</arg>
+<arg>22</arg>
+</arguments>
+<assign>
+<var>${sum}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${arg1}+${arg2}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.313" level="INFO">${result} = 50</msg>
+<status status="PASS" starttime="20200804 01:49:19.312" endtime="20200804 01:49:19.313"></status>
+</kw>
+<msg timestamp="20200804 01:49:19.314" level="INFO">${sum} = 50</msg>
+<status status="PASS" starttime="20200804 01:49:19.311" endtime="20200804 01:49:19.314"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${sum}</arg>
+<arg>${50}</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.314" endtime="20200804 01:49:19.315"></status>
+</kw>
+<kw name="Test-Teardown-1" library="BASICS-lib" type="teardown">
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>${SW}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.317" level="INFO">{'Names': ['Unix', 'Python', 'Robot', 'RIDE']}</msg>
+<status status="PASS" starttime="20200804 01:49:19.316" endtime="20200804 01:49:19.317"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.316" endtime="20200804 01:49:19.318"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.305" endtime="20200804 01:49:19.318" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t2" name="TC002 Variable Scope">
+<kw name="Test-Setup-2" library="BASICS-lib" type="setup">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Author=Thirumal</arg>
+</arguments>
+<assign>
+<var>${SW}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.321" level="INFO">${SW} = {'Author': 'Thirumal'}</msg>
+<status status="PASS" starttime="20200804 01:49:19.321" endtime="20200804 01:49:19.321"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${SW}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.323" level="INFO">${SW} = {'Author': 'Thirumal'}</msg>
+<status status="PASS" starttime="20200804 01:49:19.322" endtime="20200804 01:49:19.323"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.320" endtime="20200804 01:49:19.323"></status>
+</kw>
+<kw name="Vaiable-Scope" library="BASICS-lib">
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>${List-Names}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.325" level="INFO">['Unix', 'Python', 'Robot', 'RIDE']</msg>
+<status status="PASS" starttime="20200804 01:49:19.325" endtime="20200804 01:49:19.326"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<assign>
+<var>${val1}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.327" level="INFO">${val1} = 10</msg>
+<status status="PASS" starttime="20200804 01:49:19.326" endtime="20200804 01:49:19.327"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${val1}</arg>
+</arguments>
+<assign>
+<var>${testvariable}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.328" level="INFO">${val1} = 10</msg>
+<msg timestamp="20200804 01:49:19.329" level="INFO">${testvariable} = None</msg>
+<status status="PASS" starttime="20200804 01:49:19.327" endtime="20200804 01:49:19.329"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.324" endtime="20200804 01:49:19.329"></status>
+</kw>
+<kw name="Set-Variable-Scope" library="BASICS-lib">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<assign>
+<var>${testvariable}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.331" level="INFO">${testvariable} = 5</msg>
+<status status="PASS" starttime="20200804 01:49:19.330" endtime="20200804 01:49:19.331"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${testvariable}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.332" level="INFO">5</msg>
+<status status="PASS" starttime="20200804 01:49:19.332" endtime="20200804 01:49:19.333"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${testvariable}</arg>
+<arg>6</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.334" level="INFO">${testvariable} = 6</msg>
+<status status="PASS" starttime="20200804 01:49:19.333" endtime="20200804 01:49:19.334"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>40</arg>
+</arguments>
+<assign>
+<var>${Var}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.335" level="INFO">${Var} = 40</msg>
+<status status="PASS" starttime="20200804 01:49:19.335" endtime="20200804 01:49:19.335"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.329" endtime="20200804 01:49:19.336"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${testvariable} == ${val1}</arg>
+<arg>Log</arg>
+<arg>Test variable</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>Variable not found</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Variable not found</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.338" level="INFO">Variable not found</msg>
+<status status="PASS" starttime="20200804 01:49:19.338" endtime="20200804 01:49:19.339"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.337" endtime="20200804 01:49:19.339"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${1}</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.340" level="INFO">${i} = 1</msg>
+<status status="PASS" starttime="20200804 01:49:19.339" endtime="20200804 01:49:19.340"></status>
+</kw>
+<kw name="${Iter} IN [ @{List-Names} ]" type="for">
+<kw name="${Iter} = Unix" type="foritem">
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=-</arg>
+<arg>${Iter}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${RES}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.342" level="INFO">${RES} = Unix-1</msg>
+<status status="PASS" starttime="20200804 01:49:19.342" endtime="20200804 01:49:19.343"></status>
+</kw>
+<kw name="Add-Integers" library="BASICS-lib">
+<arguments>
+<arg>${i}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${arg1}+${arg2}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.345" level="INFO">${result} = 2</msg>
+<status status="PASS" starttime="20200804 01:49:19.344" endtime="20200804 01:49:19.345"></status>
+</kw>
+<msg timestamp="20200804 01:49:19.346" level="INFO">${i} = 2</msg>
+<status status="PASS" starttime="20200804 01:49:19.343" endtime="20200804 01:49:19.346"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RES}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.347" level="INFO">Unix-1</msg>
+<status status="PASS" starttime="20200804 01:49:19.347" endtime="20200804 01:49:19.347"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.341" endtime="20200804 01:49:19.348"></status>
+</kw>
+<kw name="${Iter} = Python" type="foritem">
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=-</arg>
+<arg>${Iter}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${RES}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.349" level="INFO">${RES} = Python-2</msg>
+<status status="PASS" starttime="20200804 01:49:19.348" endtime="20200804 01:49:19.349"></status>
+</kw>
+<kw name="Add-Integers" library="BASICS-lib">
+<arguments>
+<arg>${i}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${arg1}+${arg2}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.352" level="INFO">${result} = 3</msg>
+<status status="PASS" starttime="20200804 01:49:19.351" endtime="20200804 01:49:19.352"></status>
+</kw>
+<msg timestamp="20200804 01:49:19.353" level="INFO">${i} = 3</msg>
+<status status="PASS" starttime="20200804 01:49:19.350" endtime="20200804 01:49:19.354"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RES}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.355" level="INFO">Python-2</msg>
+<status status="PASS" starttime="20200804 01:49:19.354" endtime="20200804 01:49:19.356"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.348" endtime="20200804 01:49:19.356"></status>
+</kw>
+<kw name="${Iter} = Robot" type="foritem">
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=-</arg>
+<arg>${Iter}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${RES}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.360" level="INFO">${RES} = Robot-3</msg>
+<status status="PASS" starttime="20200804 01:49:19.357" endtime="20200804 01:49:19.363"></status>
+</kw>
+<kw name="Add-Integers" library="BASICS-lib">
+<arguments>
+<arg>${i}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${arg1}+${arg2}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.367" level="INFO">${result} = 4</msg>
+<status status="PASS" starttime="20200804 01:49:19.366" endtime="20200804 01:49:19.367"></status>
+</kw>
+<msg timestamp="20200804 01:49:19.369" level="INFO">${i} = 4</msg>
+<status status="PASS" starttime="20200804 01:49:19.363" endtime="20200804 01:49:19.369"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RES}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.370" level="INFO">Robot-3</msg>
+<status status="PASS" starttime="20200804 01:49:19.369" endtime="20200804 01:49:19.371"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.357" endtime="20200804 01:49:19.371"></status>
+</kw>
+<kw name="${Iter} = RIDE" type="foritem">
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=-</arg>
+<arg>${Iter}</arg>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${RES}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.374" level="INFO">${RES} = RIDE-4</msg>
+<status status="PASS" starttime="20200804 01:49:19.373" endtime="20200804 01:49:19.377"></status>
+</kw>
+<kw name="Add-Integers" library="BASICS-lib">
+<arguments>
+<arg>${i}</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>${arg1}+${arg2}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.381" level="INFO">${result} = 5</msg>
+<status status="PASS" starttime="20200804 01:49:19.380" endtime="20200804 01:49:19.381"></status>
+</kw>
+<msg timestamp="20200804 01:49:19.382" level="INFO">${i} = 5</msg>
+<status status="PASS" starttime="20200804 01:49:19.379" endtime="20200804 01:49:19.382"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${RES}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.384" level="INFO">RIDE-4</msg>
+<status status="PASS" starttime="20200804 01:49:19.383" endtime="20200804 01:49:19.385"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.372" endtime="20200804 01:49:19.385"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.341" endtime="20200804 01:49:19.386"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${1}</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.388" level="INFO">${i} = 1</msg>
+<status status="PASS" starttime="20200804 01:49:19.386" endtime="20200804 01:49:19.388"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Names=Thiru</arg>
+<arg>Place=Warangal</arg>
+<arg>Subject=EBS</arg>
+<arg>College=Amrita</arg>
+<arg>Dept=EEE</arg>
+</arguments>
+<assign>
+<var>${MyDictionary}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.391" level="INFO">${MyDictionary} = {'Names': 'Thiru', 'Place': 'Warangal', 'Subject': 'EBS', 'College': 'Amrita', 'Dept': 'EEE'}</msg>
+<status status="PASS" starttime="20200804 01:49:19.390" endtime="20200804 01:49:19.392"></status>
+</kw>
+<kw name="Get Dictionary Keys" library="Collections">
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+</arguments>
+<assign>
+<var>${MyList1}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.395" level="INFO">${MyList1} = ['College', 'Dept', 'Names', 'Place', 'Subject']</msg>
+<status status="PASS" starttime="20200804 01:49:19.394" endtime="20200804 01:49:19.395"></status>
+</kw>
+<kw name="${Iter} IN [ @{Mylist1} ]" type="for">
+<kw name="${Iter} = College" type="foritem">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Iter}' == 'Names'</arg>
+<arg>Remove From Dictionary</arg>
+<arg>${MyDictionary}</arg>
+<arg>Names</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.397" endtime="20200804 01:49:19.398"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Iter}' == 'College'</arg>
+<arg>Exit For Loop</arg>
+</arguments>
+<kw name="Exit For Loop" library="BuiltIn">
+<doc>Stops executing the enclosing for loop.</doc>
+<msg timestamp="20200804 01:49:19.400" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20200804 01:49:19.399" endtime="20200804 01:49:19.400"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.398" endtime="20200804 01:49:19.401"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.397" endtime="20200804 01:49:19.402"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.396" endtime="20200804 01:49:19.403"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Common-lib.txt</arg>
+<arg>Hello, World!</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.404" level="INFO" html="yes">Created file '&lt;a href="file://D:\Nokia\Libraries\Common-lib.txt"&gt;D:\Nokia\Libraries\Common-lib.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.403" endtime="20200804 01:49:19.405"></status>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Common-lib.txt</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.406" level="INFO" html="yes">File '&lt;a href="file://D:\Nokia\Libraries\Common-lib.txt"&gt;D:\Nokia\Libraries\Common-lib.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200804 01:49:19.405" endtime="20200804 01:49:19.407"></status>
+</kw>
+<kw name="Count Files In Directory" library="OperatingSystem">
+<doc>Wrapper for `Count Items In Directory` returning only file count.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.409" level="INFO" html="yes">Listing contents of directory '&lt;a href="file://D:\Nokia\Libraries"&gt;D:\Nokia\Libraries&lt;/a&gt;'.</msg>
+<msg timestamp="20200804 01:49:19.410" level="INFO">2 files.</msg>
+<status status="PASS" starttime="20200804 01:49:19.408" endtime="20200804 01:49:19.410"></status>
+</kw>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Common-lib.txt</arg>
+<arg>\nThis is Robot-Framework</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.412" level="INFO" html="yes">Appended to file '&lt;a href="file://D:\Nokia\Libraries\Common-lib.txt"&gt;D:\Nokia\Libraries\Common-lib.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.410" endtime="20200804 01:49:19.413"></status>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Common-lib.txt</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.415" level="INFO" html="yes">Getting file '&lt;a href="file://D:\Nokia\Libraries\Common-lib.txt"&gt;D:\Nokia\Libraries\Common-lib.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20200804 01:49:19.424" level="INFO">${FileC} = Hello, World!
+This is Robot-Framework</msg>
+<status status="PASS" starttime="20200804 01:49:19.413" endtime="20200804 01:49:19.425"></status>
+</kw>
+<kw name="Move File" library="OperatingSystem">
+<doc>Moves the source file into the destination.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Common-lib.txt</arg>
+<arg>D:/Nokia/Testsuites</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.427" level="INFO" html="yes">Moved file from '&lt;a href="file://D:\Nokia\Libraries\Common-lib.txt"&gt;D:\Nokia\Libraries\Common-lib.txt&lt;/a&gt;' to '&lt;a href="file://D:\Nokia\Testsuites\Common-lib.txt"&gt;D:\Nokia\Testsuites\Common-lib.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.425" endtime="20200804 01:49:19.428"></status>
+</kw>
+<kw name="File Should Exist" library="OperatingSystem">
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<arguments>
+<arg>D:/Nokia/Testsuites/Common-lib.txt</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.429" level="INFO" html="yes">File '&lt;a href="file://D:\Nokia\Testsuites\Common-lib.txt"&gt;D:\Nokia\Testsuites\Common-lib.txt&lt;/a&gt;' exists.</msg>
+<status status="PASS" starttime="20200804 01:49:19.428" endtime="20200804 01:49:19.430"></status>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<doc>Removes a file with the given path.</doc>
+<arguments>
+<arg>D:/Nokia/Testsuites/Common-lib.txt</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.432" level="INFO" html="yes">Removed file '&lt;a href="file://D:\Nokia\Testsuites\Common-lib.txt"&gt;D:\Nokia\Testsuites\Common-lib.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.431" endtime="20200804 01:49:19.432"></status>
+</kw>
+<kw name="File Should Not Exist" library="OperatingSystem">
+<doc>Fails if the given path points to an existing file.</doc>
+<arguments>
+<arg>D:/Nokia/Testsuites/Common-lib.txt</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.435" level="INFO" html="yes">File '&lt;a href="file://D:\Nokia\Testsuites\Common-lib.txt"&gt;D:\Nokia\Testsuites\Common-lib.txt&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20200804 01:49:19.434" endtime="20200804 01:49:19.436"></status>
+</kw>
+<kw name="Create File" library="OperatingSystem">
+<doc>Creates a file with the given content and encoding.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Test-lib.txt</arg>
+<arg>A AN. or Ask. the and\nor the\nor the\nand</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.438" level="INFO" html="yes">Created file '&lt;a href="file://D:\Nokia\Libraries\Test-lib.txt"&gt;D:\Nokia\Libraries\Test-lib.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.437" endtime="20200804 01:49:19.438"></status>
+</kw>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Test-lib.txt</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.440" level="INFO" html="yes">Getting file '&lt;a href="file://D:\Nokia\Libraries\Test-lib.txt"&gt;D:\Nokia\Libraries\Test-lib.txt&lt;/a&gt;'.</msg>
+<msg timestamp="20200804 01:49:19.441" level="INFO">${FileC} = A AN. or Ask. the and
+or the
+or the
+and</msg>
+<status status="PASS" starttime="20200804 01:49:19.439" endtime="20200804 01:49:19.442"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${FileC}</arg>
+<arg>the</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.443" level="INFO">3 out of 4 lines matched</msg>
+<msg timestamp="20200804 01:49:19.443" level="INFO">${FileC} = A AN. or Ask. the and
+or the
+or the</msg>
+<status status="PASS" starttime="20200804 01:49:19.442" endtime="20200804 01:49:19.443"></status>
+</kw>
+<kw name="Get Lines Matching Pattern" library="String">
+<doc>Returns lines of the given ``string`` that match the ``pattern``.</doc>
+<arguments>
+<arg>${FileC}</arg>
+<arg>A*</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.445" level="INFO">1 out of 3 lines matched</msg>
+<msg timestamp="20200804 01:49:19.445" level="INFO">${FileC} = A AN. or Ask. the and</msg>
+<status status="PASS" starttime="20200804 01:49:19.444" endtime="20200804 01:49:19.445"></status>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<doc>Converts string to lower case.</doc>
+<arguments>
+<arg>${FileC}</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.447" level="INFO">${FileC} = a an. or ask. the and</msg>
+<status status="PASS" starttime="20200804 01:49:19.446" endtime="20200804 01:49:19.447"></status>
+</kw>
+<kw name="Remove String" library="String">
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<arguments>
+<arg>${FileC}</arg>
+<arg>or</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.448" level="INFO">${FileC} = a an.  ask. the and</msg>
+<status status="PASS" starttime="20200804 01:49:19.447" endtime="20200804 01:49:19.448"></status>
+</kw>
+<kw name="Replace String" library="String">
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<arguments>
+<arg>${FileC}</arg>
+<arg>and</arg>
+<arg>or</arg>
+</arguments>
+<assign>
+<var>${FileC}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.451" level="INFO">${FileC} = a an.  ask. the or</msg>
+<status status="PASS" starttime="20200804 01:49:19.449" endtime="20200804 01:49:19.452"></status>
+</kw>
+<kw name="Remove File" library="OperatingSystem">
+<doc>Removes a file with the given path.</doc>
+<arguments>
+<arg>D:/Nokia/Libraries/Test-lib.txt</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.453" level="INFO" html="yes">Removed file '&lt;a href="file://D:\Nokia\Libraries\Test-lib.txt"&gt;D:\Nokia\Libraries\Test-lib.txt&lt;/a&gt;'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.452" endtime="20200804 01:49:19.453"></status>
+</kw>
+<kw name="Test-Teardown-2" library="BASICS-lib" type="teardown">
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>${SW}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.456" level="INFO">{'Author': 'Thirumal'}</msg>
+<status status="PASS" starttime="20200804 01:49:19.455" endtime="20200804 01:49:19.456"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.454" endtime="20200804 01:49:19.456"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.319" endtime="20200804 01:49:19.457" critical="yes"></status>
+</test>
+<test id="s1-s1-s1-t3" name="TC003 Lists and Dictionary">
+<kw name="Copy List" library="Collections">
+<doc>Returns a copy of the given list.</doc>
+<arguments>
+<arg>${List-Names}</arg>
+</arguments>
+<assign>
+<var>${List-Copy}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.460" level="INFO">${List-Copy} = ['Unix', 'Python', 'Robot', 'RIDE']</msg>
+<status status="PASS" starttime="20200804 01:49:19.459" endtime="20200804 01:49:19.460"></status>
+</kw>
+<kw name="Insert Into List" library="Collections">
+<doc>Inserts ``value`` into ``list`` to the position specified with ``index``.</doc>
+<arguments>
+<arg>${List-Copy}</arg>
+<arg>2</arg>
+<arg>SQL</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.460" endtime="20200804 01:49:19.461"></status>
+</kw>
+<kw name="Remove Values From List" library="Collections">
+<doc>Removes all occurrences of given ``values`` from ``list``.</doc>
+<arguments>
+<arg>${List-Copy}</arg>
+<arg>Robot</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.461" endtime="20200804 01:49:19.463"></status>
+</kw>
+<kw name="Remove From List" library="Collections">
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<arguments>
+<arg>${List-Copy}</arg>
+<arg>3</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.463" endtime="20200804 01:49:19.464"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${List-Copy}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.465" level="INFO">Length is 3</msg>
+<status status="PASS" starttime="20200804 01:49:19.464" endtime="20200804 01:49:19.465"></status>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<arguments>
+<arg>List Should Contain Sub List</arg>
+<arg>${List-Names}</arg>
+<arg>${List-Copy}</arg>
+<arg>msg=Not a sub List</arg>
+<arg>values=False</arg>
+</arguments>
+<kw name="List Should Contain Sub List" library="Collections">
+<doc>Fails if not all of the elements in ``list2`` are found in ``list1``.</doc>
+<arguments>
+<arg>${List-Names}</arg>
+<arg>${List-Copy}</arg>
+<arg>msg=Not a sub List</arg>
+<arg>values=False</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.467" level="FAIL">Not a sub List</msg>
+<status status="FAIL" starttime="20200804 01:49:19.466" endtime="20200804 01:49:19.467"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.465" endtime="20200804 01:49:19.468"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${List-Copy}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.469" level="INFO">['Unix', 'Python', 'SQL']</msg>
+<status status="PASS" starttime="20200804 01:49:19.468" endtime="20200804 01:49:19.470"></status>
+</kw>
+<kw name="Get Matches" library="Collections">
+<doc>Returns a list of matches to ``pattern`` in ``list``.</doc>
+<arguments>
+<arg>${List-Copy}</arg>
+<arg>P*</arg>
+</arguments>
+<assign>
+<var>${matches}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.472" level="INFO">${matches} = ['Python']</msg>
+<status status="PASS" starttime="20200804 01:49:19.471" endtime="20200804 01:49:19.472"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${matches}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.474" level="INFO">Length is 1</msg>
+<status status="PASS" starttime="20200804 01:49:19.473" endtime="20200804 01:49:19.474"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Names=Thiru</arg>
+<arg>Place=Warangal</arg>
+<arg>Subject=EBS</arg>
+<arg>College=Amrita</arg>
+<arg>Dept=EEE</arg>
+</arguments>
+<assign>
+<var>${MyDictionary}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.476" level="INFO">${MyDictionary} = {'Names': 'Thiru', 'Place': 'Warangal', 'Subject': 'EBS', 'College': 'Amrita', 'Dept': 'EEE'}</msg>
+<status status="PASS" starttime="20200804 01:49:19.475" endtime="20200804 01:49:19.476"></status>
+</kw>
+<kw name="Get Dictionary Keys" library="Collections">
+<doc>Returns keys of the given ``dictionary`` as a list.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+</arguments>
+<assign>
+<var>${MyList1}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.478" level="INFO">${MyList1} = ['College', 'Dept', 'Names', 'Place', 'Subject']</msg>
+<status status="PASS" starttime="20200804 01:49:19.477" endtime="20200804 01:49:19.478"></status>
+</kw>
+<kw name="Get Dictionary Values" library="Collections">
+<doc>Returns values of the given ``dictionary`` as a list.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+</arguments>
+<assign>
+<var>${MyList2}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.480" level="INFO">${MyList2} = ['Amrita', 'EEE', 'Thiru', 'Warangal', 'EBS']</msg>
+<status status="PASS" starttime="20200804 01:49:19.479" endtime="20200804 01:49:19.480"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+<arg>College</arg>
+</arguments>
+<assign>
+<var>${Collage}</var>
+</assign>
+<msg timestamp="20200804 01:49:19.482" level="INFO">${Collage} = Amrita</msg>
+<status status="PASS" starttime="20200804 01:49:19.481" endtime="20200804 01:49:19.482"></status>
+</kw>
+<kw name="Remove From Dictionary" library="Collections">
+<doc>Removes the given ``keys`` from the ``dictionary``.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+<arg>Subject</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.483" level="INFO">Removed item with key 'Subject' and value 'EBS'.</msg>
+<status status="PASS" starttime="20200804 01:49:19.482" endtime="20200804 01:49:19.483"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+<arg>Class=Nokia</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.484" endtime="20200804 01:49:19.485"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${MyDictionary}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.486" level="INFO">{'Names': 'Thiru', 'Place': 'Warangal', 'College': 'Amrita', 'Dept': 'EEE', 'Class': 'Nokia'}</msg>
+<status status="PASS" starttime="20200804 01:49:19.485" endtime="20200804 01:49:19.486"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.458" endtime="20200804 01:49:19.487" critical="yes"></status>
+</test>
+<kw name="Suite-Teardown" library="BASICS-lib" type="teardown">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${List-Names}[0]</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.489" level="INFO">Unix</msg>
+<status status="PASS" starttime="20200804 01:49:19.489" endtime="20200804 01:49:19.490"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${List-Names}[1]</arg>
+</arguments>
+<status status="PASS" starttime="20200804 01:49:19.490" endtime="20200804 01:49:19.491"></status>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>${List-Names}</arg>
+</arguments>
+<msg timestamp="20200804 01:49:19.492" level="INFO">['Unix', 'Python', 'Robot', 'RIDE']</msg>
+<status status="PASS" starttime="20200804 01:49:19.491" endtime="20200804 01:49:19.492"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.488" endtime="20200804 01:49:19.493"></status>
+</kw>
+<status status="PASS" starttime="20200804 01:49:19.262" endtime="20200804 01:49:19.493"></status>
+</suite>
+<status status="PASS" starttime="20200804 01:49:19.249" endtime="20200804 01:49:19.497"></status>
+</suite>
+<status status="PASS" starttime="20200804 01:49:19.220" endtime="20200804 01:49:19.501"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" id="s1" name="Testbot">Testbot</stat>
+<stat pass="3" fail="0" id="s1-s1" name="Testsuites">Testbot.Testsuites</stat>
+<stat pass="3" fail="0" id="s1-s1-s1" name="BASICS">Testbot.Testsuites.BASICS</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
